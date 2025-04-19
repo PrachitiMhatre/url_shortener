@@ -45,7 +45,7 @@ gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys \
 \curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 ```
-3.Install Ruby 3.0.0:
+3. Install Ruby 3.0.0:
 
 ```bash
 rvm install 3.0.0
@@ -59,7 +59,7 @@ ruby -v
 sudo apt install -y postgresql postgresql-contrib libpq-dev
 ```
 
-2.Create a PostgreSQL user and database:
+2. Create a PostgreSQL user and database:
 
 ```bash
 sudo -u postgres createuser --interactive
@@ -95,23 +95,25 @@ test:
 ---
 
 ## Getting Started
-1. ***Clone the Repository***
+1. Clone the Repository
 
+```bash
 git clone https://github.com/PrachitiMhatre/url_shortener.git
 cd url_shortener
+```
 
-2. ***Install Gems and JS Packages***
+2. Install Gems
 ```bash
 bundle install
 ```
 
-3. ***Set Up the Database***
+3. Set Up the Database
 ```bash
 rails db:create
 rails db:migrate
 ```
 
-4. ***Start the App***
+4. Start the App
 ```bash
 rails server
 ```
