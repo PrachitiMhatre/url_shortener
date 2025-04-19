@@ -1,10 +1,10 @@
-# Rails URL Shortener
+# URL Shortener
 
 A simple URL shortener built with **Rails 7.1.5.1**, **Ruby 3.0.0**, **PostgreSQL**, and **Bootstrap 5**.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Ruby:** 3.0.0  
 - **Rails:** 7.1.5.1  
@@ -13,11 +13,23 @@ A simple URL shortener built with **Rails 7.1.5.1**, **Ruby 3.0.0**, **PostgreSQ
 
 ---
 
-## 📥 System Setup (Ubuntu with RVM)
+## Features
+
+- Create and shorten long URLs
+
+- Redirect from short URLs to full URLs
+
+- Copy to clipboard with JS
+
+- Responsive UI with Bootstrap
+
+---
+
+## System Setup (Ubuntu with RVM)
 
 ### Install RVM and Ruby 3.0.0
 
-1. **Install system dependencies and GPG keys:**
+1. Install system dependencies and GPG keys:
 
 ```bash
 sudo apt update
@@ -27,13 +39,13 @@ gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys \
   409B6B1796C275462A1703113804BB82D39DC0E3 \
   7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 ```
-2. ***Install RVM:***
+2. Install RVM:
 
 ```bash
 \curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 ```
-3. ***Install Ruby 3.0.0:***
+3.Install Ruby 3.0.0:
 
 ```bash
 rvm install 3.0.0
@@ -41,30 +53,29 @@ rvm use 3.0.0
 ruby -v
 ```
 ### Database Setup
-1. ***Install PostgreSQL***
+1. Install PostgreSQL
 
 ```bash
 sudo apt install -y postgresql postgresql-contrib libpq-dev
 ```
 
-2. ***Create a PostgreSQL user and database:***
+2.Create a PostgreSQL user and database:
 
 ```bash
 sudo -u postgres createuser --interactive
 ```
 
-3. ***Set a password using psql:***
+3. Set a password using psql:
 
 ```bash
 sudo -u postgres psql
 \password your_postgres_username
 ```
 
-4. ***Configure config/database.yml***
+4. Configure config/database.yml
 
 Replace the default config/database.yml with the following:
-```bash
-
+```yaml
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -104,17 +115,6 @@ rails db:migrate
 ```bash
 rails server
 ```
----
-
-## Features
-
-    Create and shorten long URLs
-
-    Redirect from short URLs to full URLs
-
-    Copy to clipboard with JS
-
-    Responsive UI with Bootstrap
 ---
 
 ## Running Tests
