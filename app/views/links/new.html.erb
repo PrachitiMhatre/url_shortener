@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="col-md-8 col-lg-6 shadow p-5 rounded bg-white">
+    <h2 class="text-center mb-4">Shorten Your URL</h2>
+
+    <%= form_with model: @link, local: true, html: { class: "needs-validation" } do |form| %>
+      <% if @link.errors.any? %>
+        <div class="alert alert-danger">
+          <h5><%= pluralize(@link.errors.count, "error") %> prevented this link from being saved:</h5>
+          <ul class="mb-0">
+            <% @link.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-4">
+        <%= form.label :original_url, "Paste your long URL", class: "form-label fw-semibold" %>
+        <%= form.text_field :original_url, placeholder: "https://example.com/super/long/url", class: "form-control form-control-lg", required: true %>
+      </div>
+
+      <div class="d-grid mb-3">
+        <%= form.submit "🚀 Shorten URL", class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+
+    <hr class="my-4">
+
+    <div class="text-center">
+      <%= link_to "View All Shortened Links", links_path, class: "btn btn-outline-secondary btn-sm" %>
+    </div>
+  </div>
+</div>

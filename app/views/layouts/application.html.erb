@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UrlShortener</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <% flash.each do |type, message| %>
+      <% alert_class = case type.to_sym
+        when :notice then "alert-success"
+        when :alert  then "alert-danger"
+        else "alert-info"
+        end 
+      %>
+
+      <div class="alert <%= alert_class %> alert-dismissible fade show mt-3 mx-3" role="alert">
+        <%= message %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+  </body>
+</html>
